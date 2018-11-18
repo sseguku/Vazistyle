@@ -47,14 +47,11 @@ group :development do
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'sqlite3'
+ gem 'sqlite3'
 end
 
 group :production do
-  # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
-  gem 'pg'
-  gem 'rails_12factor'
+   gem 'pg'
 end
   
   
