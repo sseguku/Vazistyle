@@ -1,2 +1,0 @@
-class Club < ApplicationRecord
-end
