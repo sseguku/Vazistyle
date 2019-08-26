@@ -1,0 +1,2 @@
+class AttributeValue < ApplicationRecord
+end

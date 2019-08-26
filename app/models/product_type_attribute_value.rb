@@ -1,0 +1,2 @@
+class ProductTypeAttributeValue < ApplicationRecord
+end
