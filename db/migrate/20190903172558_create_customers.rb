@@ -6,8 +6,8 @@ class CreateCustomers < ActiveRecord::Migration[5.2]
       t.string :email
       t.string :phone_number
       t.integer :address_id
-      t.integer :shipping_id
       t.integer :club_id
+      t.integer :shipping_info_id
 
       t.timestamps
     end

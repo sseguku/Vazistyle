@@ -20,5 +20,11 @@ RSpec.describe Address, type: :model do
             @address.city_id = nil 
             expect(@address).to_not be_valid
         end
+
+        it 'ensures city_id to be positive' do
+            @address.city_id = -332 
+            expect(@address).to_not be_valid
+        end
+        
     end
 end

@@ -26,6 +26,17 @@ RSpec.describe Comment, type: :model do
       @comment.message = nil 
       expect(@comment).to_not be_valid
     end
+
+    
+    it 'ensures customer_id to be positive' do 
+      @comment.customer_id = -3432
+      expect(@comment).to_not be_valid
+    end
+
+    it 'ensures product_id to be positive' do
+      @comment.product_id = -32434
+      expect(@comment).to_not be_valid
+    end
   end
 
   context 'More Validation Test - ' do 
@@ -38,5 +49,7 @@ RSpec.describe Comment, type: :model do
       comment = Comment.new(product_id: 1, message: 'This is nice').save
       expect(comment).to eq(false)
     end
+
+    
   end
 end

@@ -19,5 +19,11 @@ RSpec.describe City, type: :model do
             @city.country_id = nil
             expect(@city).to_not be_valid
         end
+
+        it 'ensures country_id to be negative' do
+            @city.country_id = -32
+            expect(@city).to_not be_valid
+        end
+        
     end
 end

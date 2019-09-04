@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_26_233036) do
+ActiveRecord::Schema.define(version: 2019_09_04_023233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 2019_08_26_233036) do
 
   create_table "attribute_values", force: :cascade do |t|
     t.integer "attribute_id"
-    t.string "attribute_value_name"
-    t.string "attribute_value_description"
+    t.string "value_name"
+    t.string "value_description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,14 +50,19 @@ ActiveRecord::Schema.define(version: 2019_08_26_233036) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "club_events", force: :cascade do |t|
+    t.integer "club_id"
+    t.integer "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "clubs", force: :cascade do |t|
     t.string "name"
-    t.string "type"
+    t.string "club_type"
     t.string "fellowship_day"
-    t.time "fellowship_time"
-    t.string "signture_project"
-    t.string "other_projects"
-    t.integer "address_id"
+    t.string "fellowship_time"
+    t.string "fellowship_location"
     t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -83,8 +88,19 @@ ActiveRecord::Schema.define(version: 2019_08_26_233036) do
     t.string "email"
     t.string "phone_number"
     t.integer "address_id"
-    t.integer "shipping_id"
     t.integer "club_id"
+    t.integer "shipping_info_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "username"
+    t.string "password"
+    t.boolean "active_status"
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string "name"
+    t.string "event_type"
+    t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -125,16 +141,7 @@ ActiveRecord::Schema.define(version: 2019_08_26_233036) do
   create_table "ratings", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "product_id"
-    t.integer "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "shipping_infos", force: :cascade do |t|
-    t.string "type"
-    t.float "cost"
-    t.integer "address_id"
-    t.date "date"
+    t.float "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

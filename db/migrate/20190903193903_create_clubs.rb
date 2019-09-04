@@ -4,10 +4,8 @@ class CreateClubs < ActiveRecord::Migration[5.2]
       t.string :name
       t.string :type
       t.string :fellowship_day
-      t.time :fellowship_time
-      t.integer :fellowship_location      
-      t.string :signture_project
-      t.string :other_projects
+      t.string :fellowship_time
+      t.string :fellowship_location
       t.integer :product_id
 
       t.timestamps

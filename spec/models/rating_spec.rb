@@ -7,6 +7,7 @@ RSpec.describe Rating, type: :model do
       expect(rating).to eq(false)
     end
     
+    
     it 'ensures product_id presence ' do
       rating = Rating.new(customer_id: 1, value: 1).save
       expect(rating).to eq(false)
@@ -21,6 +22,8 @@ RSpec.describe Rating, type: :model do
       rating = Rating.new(customer_id: 1, product_id: 1, value: 1).save
       expect(rating).to eq(true)
     end
+
+    
   end
 
   context '#Correct values' do
@@ -33,6 +36,5 @@ RSpec.describe Rating, type: :model do
       rating = Rating.new(customer_id: 1, product_id: 1, value: 17)
       expect(rating).to_not be_valid
     end
-
   end
 end
