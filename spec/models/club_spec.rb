@@ -20,10 +20,6 @@ RSpec.describe Club, type: :model do
       expect(@club).to_not be_valid
     end
 
-    it ' ensures id presence' do
-      @club.id = nil
-      expect(@club.id).to_not be_valid
-    end
   end
  
 end

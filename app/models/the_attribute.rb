@@ -1,0 +1,2 @@
+class TheAttribute < ApplicationRecord
+end

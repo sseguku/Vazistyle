@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_04_023233) do
+ActiveRecord::Schema.define(version: 2019_09_09_090934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,16 +29,8 @@ ActiveRecord::Schema.define(version: 2019_09_04_023233) do
   end
 
   create_table "attribute_values", force: :cascade do |t|
-    t.integer "attribute_id"
-    t.string "value_name"
-    t.string "value_description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "attributes", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
+    t.string "value"
+    t.string "attribute_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -105,21 +97,14 @@ ActiveRecord::Schema.define(version: 2019_09_04_023233) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "product_attribute_values", force: :cascade do |t|
-    t.integer "product_id"
-    t.integer "attribute_value_id"
+  create_table "product_attributes", force: :cascade do |t|
+    t.integer "attribute_id"
+    t.integer "the_attribute_value_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "product_type_attribute_values", force: :cascade do |t|
-    t.integer "product_type_id"
-    t.integer "attribute_value_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "product_types", force: :cascade do |t|
+  create_table "product_categories", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "created_at", null: false
@@ -129,11 +114,15 @@ ActiveRecord::Schema.define(version: 2019_09_04_023233) do
   create_table "products", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.integer "stock"
     t.float "unit_price"
+    t.float "discount"
+    t.integer "stock"
     t.binary "photo"
+    t.datetime "last_purchased_at"
+    t.string "last_purchased_by"
+    t.integer "total_purchases"
     t.integer "club_id"
-    t.integer "product_type_id"
+    t.integer "product_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -142,6 +131,13 @@ ActiveRecord::Schema.define(version: 2019_09_04_023233) do
     t.integer "customer_id"
     t.integer "product_id"
     t.float "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "the_attributes", force: :cascade do |t|
+    t.string "name"
+    t.integer "product_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

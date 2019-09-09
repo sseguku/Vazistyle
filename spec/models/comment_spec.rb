@@ -29,7 +29,7 @@ RSpec.describe Comment, type: :model do
 
     
     it 'ensures customer_id to be positive' do 
-      @comment.customer_id = -3432
+      @comment.customer_id = -32
       expect(@comment).to_not be_valid
     end
 
