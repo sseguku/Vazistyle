@@ -99,7 +99,8 @@ ActiveRecord::Schema.define(version: 2019_09_09_090934) do
 
   create_table "product_attributes", force: :cascade do |t|
     t.integer "attribute_id"
-    t.integer "the_attribute_value_id"
+    t.integer "attribute_value_id"
+    t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
