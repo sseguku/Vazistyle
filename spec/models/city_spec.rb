@@ -24,6 +24,17 @@ RSpec.describe City, type: :model do
             @city.country_id = -32
             expect(@city).to_not be_valid
         end
-        
+    end
+
+    context ' #associations' do 
+        it ' should have one country' do 
+            assc = described_class.reflect_on_association(:country)
+            expect(assc.macro).to eq(:has_one)
+        end
+
+        it ' should have many addresses' do
+            assc = described_class.reflect_on_association(:addresses)
+            expect(assc.macro).to eq(:has_many)
+        end
     end
 end

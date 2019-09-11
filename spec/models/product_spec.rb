@@ -12,7 +12,6 @@ RSpec.describe Product, type: :model do
          last_purchased_at: Time.now.to_i, 
          last_purchased_by: 'Jjingo',
          total_purchases: 2, #positive
-         club_id: 1,
          product_category_id: 1)#present 
     end
 
@@ -68,6 +67,33 @@ RSpec.describe Product, type: :model do
     it ' ensures product_category_id is positive' do
       @product.product_category_id = -55
       expect(@product).to_not be_valid
+    end
+  end
+
+  context ' #associations' do 
+    it ' should have many clubs through club_product' do
+      assc = described_class.reflect_on_association(:clubs)
+      expect(assc.macro).to eq(:has_many)
+    end
+
+    # it ' should have a product_category' do 
+    #   assc = described_class.reflect_on_association(:product_category)
+    #   expect(assc.macro).to eq(:belongs_to)
+    # end
+
+    it ' should have many product_attributes' do
+      assc = described_class.reflect_on_association(:product_attributes)
+      expect(assc.macro).to eq(:has_many) 
+    end
+
+    it ' should have many ratings' do 
+      assc = described_class.reflect_on_association(:ratings)
+      expect(assc.macro).to eq(:has_many)
+    end
+
+    it ' should have many comments' do 
+      assc = described_class.reflect_on_association(:comments)
+      expect(assc.macro).to eq(:has_many)
     end
   end
 end

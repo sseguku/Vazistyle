@@ -30,4 +30,36 @@ RSpec.describe Customer, type: :model do
     expect(@customer).to_not be_valid
   end
  end
+
+  context ' #associations' do 
+    it ' should have one address' do
+      assc = described_class.reflect_on_association(:address)
+      expect(assc.macro).to eq(:has_one)
+    end
+
+    it ' should have many comments' do 
+      assc = described_class.reflect_on_association(:comments)
+      expect(assc.macro).to eq(:has_many)
+    end
+
+    it ' should have many ratings' do 
+      assc =  described_class.reflect_on_association(:ratings)
+      expect(assc.macro).to eq(:has_many)
+    end
+
+    it ' should have one club' do 
+      assc = described_class.reflect_on_association(:club)
+      expect(assc.macro).to eq(:has_one)
+    end
+
+    it ' should have one shippinginfo' do
+      assc = described_class.reflect_on_association(:shippinginfo)
+      expect(assc.macro).to eq(:has_one) 
+    end
+
+    it ' should have many orders' do 
+      assc = described_class.reflect_on_association(:orders)
+      expect(assc.macro).to eq(:has_many)    
+    end
+  end
 end

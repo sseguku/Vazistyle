@@ -49,7 +49,17 @@ RSpec.describe Comment, type: :model do
       comment = Comment.new(product_id: 1, message: 'This is nice').save
       expect(comment).to eq(false)
     end
+  end
 
-    
+  context ' #associations' do 
+    it ' should have one customer' do
+      assc = described_class.reflect_on_association(:customer)
+      expect(assc.macro).to eq(:has_one) 
+    end
+
+    it ' should have one product' do       
+      assc = described_class.reflect_on_association(:product)
+      expect(assc.macro).to eq(:has_one)
+    end
   end
 end

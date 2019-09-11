@@ -14,6 +14,12 @@ RSpec.describe ProductCategory, type: :model do
       @product_category.name = nil 
       expect(@product_category).to_not be_valid
     end
+  end
 
+  context ' #Associations' do
+    it 'should have many the_attributes' do
+       
+      #  expect(ProductCategory.reflect_on_association(:the_attributes).macro).to eq(:has_many)
+    end
   end
 end

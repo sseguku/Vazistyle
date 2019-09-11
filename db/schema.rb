@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_09_090934) do
+ActiveRecord::Schema.define(version: 2019_09_10_210412) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,13 +49,19 @@ ActiveRecord::Schema.define(version: 2019_09_09_090934) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "club_products", force: :cascade do |t|
+    t.integer "product_id"
+    t.integer "club_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "clubs", force: :cascade do |t|
     t.string "name"
     t.string "club_type"
     t.string "fellowship_day"
     t.string "fellowship_time"
     t.string "fellowship_location"
-    t.integer "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -122,7 +128,6 @@ ActiveRecord::Schema.define(version: 2019_09_09_090934) do
     t.datetime "last_purchased_at"
     t.string "last_purchased_by"
     t.integer "total_purchases"
-    t.integer "club_id"
     t.integer "product_category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -132,6 +137,17 @@ ActiveRecord::Schema.define(version: 2019_09_09_090934) do
     t.integer "customer_id"
     t.integer "product_id"
     t.float "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "shipping_infos", force: :cascade do |t|
+    t.datetime "shipping_date"
+    t.string "contact_number"
+    t.float "shipping_cost"
+    t.integer "address_id"
+    t.integer "product_id"
+    t.boolean "delivery_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

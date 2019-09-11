@@ -10,7 +10,6 @@ class CreateProducts < ActiveRecord::Migration[5.2]
       t.datetime :last_purchased_at
       t.string :last_purchased_by
       t.integer :total_purchases
-      t.integer :club_id
       t.integer :product_category_id
 
       t.timestamps

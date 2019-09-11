@@ -37,4 +37,16 @@ RSpec.describe Rating, type: :model do
       expect(rating).to_not be_valid
     end
   end
+
+  context ' #associations' do 
+    it ' should have one customer' do
+      assc = described_class.reflect_on_association(:customer)
+      expect(assc.macro).to eq(:has_one) 
+    end
+
+    it ' should have one product' do       
+      assc = described_class.reflect_on_association(:product)
+      expect(assc.macro).to eq(:has_one)
+    end
+  end
 end
