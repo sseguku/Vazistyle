@@ -1,0 +1,2 @@
+class ProductAttributesController < ApplicationController
+end

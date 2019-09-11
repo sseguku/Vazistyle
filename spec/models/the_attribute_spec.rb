@@ -25,4 +25,21 @@ RSpec.describe TheAttribute, type: :model do
       expect(@the_attribute).to_not be_valid 
     end
   end
+
+  context ' #associations' do
+    it ' should have one product_category' do
+      assc = described_class.reflect_on_association(:product_category)
+      expect(assc.macro).to eq(:has_one) 
+    end
+
+    it ' should have many attribute_values' do
+      assc = described_class.reflect_on_association(:attribute_values)
+      expect(assc.macro).to eq(:has_many)  
+    end
+
+    it ' should have many product_attributes' do
+      assc = described_class.reflect_on_association(:product_attributes)
+      expect(assc.macro).to eq(:has_many)  
+    end
+  end
 end

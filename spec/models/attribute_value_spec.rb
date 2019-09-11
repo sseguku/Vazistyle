@@ -23,7 +23,18 @@ RSpec.describe AttributeValue, type: :model do
         it ' ensures attribute_id to be positive' do
             @attribute_value.attribute_id = -22332
             expect(@attribute_value).to_not be_valid
+        end        
+    end
+
+    context ' #associations' do
+        it ' should have one the_attribue' do
+            assc = described_class.reflect_on_association(:the_attribute)
+            expect(assc.macro).to eq(:has_one) 
+        end 
+
+        it ' should have many product_attribute' do 
+            assc = described_class.reflect_on_association(:product_attributes)
+            expect(assc.macro).to eq(:has_many) 
         end
-        
     end
 end
