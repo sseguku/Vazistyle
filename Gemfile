@@ -17,6 +17,7 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
