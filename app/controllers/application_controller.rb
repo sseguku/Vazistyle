@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::API
     include ActionController::HttpAuthentication::Token::ControllerMethods
 
-    #before_action :restrict_access, expect: :welcome
+   before_action :restrict_access, expect: :welcome
     private
 
     def restrict_access
