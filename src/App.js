@@ -1,22 +1,16 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import { Col, Container, Row, Button } from "react-bootstrap";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Shop Online</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Vazistyle
-        </a>
-      </header>
+      <Container>
+        <Row>
+          <Col>Welcome to Vazistyle</Col>
+        </Row>
+        <Button variant="primary">Shop Now</Button>{" "}
+      </Container>
     </div>
   );
 }
